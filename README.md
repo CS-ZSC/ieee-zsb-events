@@ -2,7 +2,7 @@
 
 
 <center>
- the official events and competitions gate for IEEE Zagazig student branch.
+ The official events and competitions gate for the IEEE Zagazig student branch.
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/992e9de2-b0b2-4a87-b2d8-acbc29dbd280/deploy-status)](https://app.netlify.com/projects/ieee-zsb-events/deploys)
 
