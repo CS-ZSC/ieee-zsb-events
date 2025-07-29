@@ -3,7 +3,6 @@ import React from "react";
 import { Box, Flex, HStack, Button, Heading } from "@chakra-ui/react";
 import { redirect } from "next/navigation";
 import Logo from "@/components/ui/internal/logo";
-import { LogoType } from "@/components/ui/internal/logo";
 import { useWindowType } from "@/hooks/use-window-type";
 
 export default function Header() {
@@ -36,7 +35,7 @@ export default function Header() {
         <HStack justifyContent="space-between" alignItems="center" width="full">
           <HStack>
             <Box borderRightColor={"neutral-1"} px={2} mx={2} borderRightWidth={isDesktop ? 1 : 0}>
-              <Logo logoType={LogoType.White} width={85} height={50} />
+              <Logo type="white" width={85} height={50} />
             </Box>
             {isDesktop && <Heading>Events and Competitions</Heading>}
           </HStack>

@@ -14,7 +14,6 @@ import {
 import Link from "next/link";
 import Logo from "@/components/ui/internal/logo";
 import Card from "@/components/ui/internal/card";
-import { LogoType } from "@/components/ui/internal/logo";
 import { useWindowType } from "@/hooks/use-window-type";
 import SocialMediaLinks from "@/data/social-media-links";
 import { Icon } from "@iconify/react";
@@ -30,7 +29,7 @@ export default function Footer() {
     <Flex paddingTop="var(--global-spacing)">
       <Card>
         <Logo
-          logoType={LogoType.White}
+          type={"white"}
           width={isDesktop ? 180 : 110}
           height={isDesktop ? 110 : 65}
         />
