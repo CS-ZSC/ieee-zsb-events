@@ -4,6 +4,7 @@ import { Box, Flex, HStack, Button, Heading } from "@chakra-ui/react";
 import { redirect } from "next/navigation";
 import Logo from "@/components/ui/internal/logo";
 import { useWindowType } from "@/hooks/use-window-type";
+import { ColorModeButton } from "../../color-mode";
 
 export default function Header() {
   const { isDesktop } = useWindowType();
@@ -35,27 +36,31 @@ export default function Header() {
         <HStack justifyContent="space-between" alignItems="center" width="full">
           <HStack>
             <Box borderRightColor={"neutral-1"} px={2} mx={2} borderRightWidth={isDesktop ? 1 : 0}>
-              <Logo type="white" width={85} height={50} />
+              <Logo width={85} height={50} />
             </Box>
             {isDesktop && <Heading>Events and Competitions</Heading>}
           </HStack>
-          <Button
-            variant="outline"
-            width={"fit"}
-            bgColor={"primary-1"}
-            // paddingY={10}
-            rounded="xl"
-            padding={"10px 20px"}
-            justifyContent={"center"}
-            textAlign="center"
-            color="white"
-            transition="all"
-            _hover={{ backgroundColor: "primary-10" }}
-            size={isDesktop ? "xl" : "md"}
-            onClick={() => redirect("/auth/login")}
-          >
-            Login
-          </Button>
+          <HStack spacing={4} alignItems="center">
+
+            <Button
+              variant="outline"
+              width={"fit"}
+              bgColor={"primary-1"}
+              // paddingY={10}
+              rounded="xl"
+              padding={"10px 20px"}
+              justifyContent={"center"}
+              textAlign="center"
+              color="white"
+              transition="all"
+              _hover={{ backgroundColor: "primary-10" }}
+              size={isDesktop ? "xl" : "md"}
+              onClick={() => redirect("/auth/login")}
+            >
+              Login
+            </Button>
+            <ColorModeButton/>
+          </HStack>
         </HStack>
       </Box>
     </Flex>
