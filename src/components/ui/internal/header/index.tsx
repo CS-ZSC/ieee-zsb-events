@@ -40,7 +40,7 @@ export default function Header() {
             </Box>
             {isDesktop && <Heading>Events and Competitions</Heading>}
           </HStack>
-          <HStack spacing={4} alignItems="center">
+          <HStack spaceX={4} alignItems="center">
 
             <Button
               variant="outline"
