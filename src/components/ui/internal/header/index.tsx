@@ -41,7 +41,6 @@ export default function Header() {
             {isDesktop && <Heading>Events and Competitions</Heading>}
           </HStack>
           <HStack spaceX={4} alignItems="center">
-
             <Button
               variant="outline"
               width={"fit"}

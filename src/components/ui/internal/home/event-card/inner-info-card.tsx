@@ -6,7 +6,7 @@ import { redirect } from "next/navigation";
 export function InnerInfoCard({ name, link, description }: EventCardProps) {
     const { isDesktop } = useWindowType();
     return (
-        <HStack p={6} spaceX={4} width="100%" borderTopRadius={isDesktop ? "xl" : 0} borderBottomRadius={"xl"} alignItems="center" justifyContent="space-between" bgColor={"primary-5"}  border={"1px solid"} borderColor={"primary-3"}>
+        <HStack p={6} spaceX={4} width="100%" borderTopRadius={isDesktop ? "xl" : 0} borderBottomRadius={"xl"} alignItems="center" justifyContent="space-between" bgColor={"primary-5"}  border={"1px solid"} borderColor={"primary-3"} backdropFilter={"blur(10px)"}>
             <Flex justify="center" align="center" textAlign={"center"} h="100px" width="40%" borderRightColor={"primary-3"} borderRightWidth="1px" paddingRight="20px">
                 <Heading size="4xl" w="200px" text>{name}</Heading>
             </Flex>
@@ -18,7 +18,7 @@ export function InnerInfoCard({ name, link, description }: EventCardProps) {
                     variant="outline"
                     width={"full"}
                     bgColor={"primary-1"}
-                    rounded="xl"
+                    rounded="10px"
                     padding={"10px 20px"}
                     justifyContent={"center"}
                     textAlign="center"
