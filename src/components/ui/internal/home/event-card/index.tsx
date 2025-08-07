@@ -3,7 +3,7 @@ import { useWindowType } from "@/hooks/use-window-type";
 import { EventCardMobile } from "./event-card-mobile";
 import { EventCardDesktop } from "./event-card-desktop";
 
-interface EventCardProps {
+export interface EventCardProps {
   name: string;
   link: string;
   image: string;

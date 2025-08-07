@@ -2,12 +2,18 @@
 import React from "react";
 import { Box, Flex, HStack, Button, Heading } from "@chakra-ui/react";
 import { redirect } from "next/navigation";
-import Logo from "@/components/ui/internal/logo";
 import { useWindowType } from "@/hooks/use-window-type";
-import { ColorModeButton } from "../../color-mode";
+import { ColorModeButton, useColorModeValue } from "../../color-mode";
+import dynamic from "next/dynamic";
+import { MoonLoader } from "react-spinners";
+
+const Logo = dynamic(() => import("@/components/ui/internal/logo"), {
+  loading: () => <MoonLoader size={10} />,
+});
 
 export default function Header() {
   const { isDesktop } = useWindowType();
+  const logoType = useColorModeValue("black", "white");
   return (
     <Flex justify="center" align="center" margin={16}>
       <Box
@@ -35,9 +41,9 @@ export default function Header() {
       >
         <HStack justifyContent="space-between" alignItems="center" width="full">
           <HStack>
-            <Box borderRightColor={"neutral-1"} px={2} mx={2} borderRightWidth={isDesktop ? 1 : 0}>
-              <Logo width={85} height={50} />
-            </Box>
+            <Flex align={"center"} justify={"center"} borderRightColor={"neutral-1"} px={2} mx={2} borderRightWidth={isDesktop ? 1 : 0}>
+              <Logo width={85} height={50} type={logoType} />
+            </Flex>
             {isDesktop && <Heading>Events and Competitions</Heading>}
           </HStack>
           <HStack spaceX={4} alignItems="center">
@@ -45,7 +51,6 @@ export default function Header() {
               variant="outline"
               width={"fit"}
               bgColor={"primary-1"}
-              // paddingY={10}
               rounded="xl"
               padding={"10px 20px"}
               justifyContent={"center"}
@@ -58,7 +63,7 @@ export default function Header() {
             >
               Login
             </Button>
-            <ColorModeButton/>
+            <ColorModeButton />
           </HStack>
         </HStack>
       </Box>

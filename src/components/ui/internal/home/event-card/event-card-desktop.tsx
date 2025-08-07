@@ -1,5 +1,6 @@
 import { Box, Image, Stack } from "@chakra-ui/react";
 import { InnerInfoCard } from "./inner-info-card";
+import { EventCardProps } from ".";
 
 export function EventCardDesktop({ name, link, image, description }: EventCardProps) {
     return (

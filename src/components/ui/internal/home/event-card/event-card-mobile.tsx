@@ -1,5 +1,7 @@
-import { Flex, Image, Stack } from "@chakra-ui/react";
+import { Flex, Image } from "@chakra-ui/react";
 import { InnerInfoCard } from "./inner-info-card";
+import { EventCardProps } from ".";
+
 
 export function EventCardMobile({ name, link, image, description }: EventCardProps) {
   return (
