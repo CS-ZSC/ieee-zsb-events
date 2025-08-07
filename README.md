@@ -1,4 +1,4 @@
-![](./public/ieee-logo-blue.svg)
+![](./public/images/ieee/ieee-logo-blue.svg)
 
 
 <center>

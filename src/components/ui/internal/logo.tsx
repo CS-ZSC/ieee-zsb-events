@@ -1,32 +1,44 @@
 "use client";
+import NextImage from "next/image";
 import { Image } from "@chakra-ui/react";
 import Link from "next/link";
-import { useColorMode } from "@/components/ui/color-mode";
-interface LogoOptions {
-  logoType: LogoType;
-  width: number;
-  height: number;
+import { useColorModeValue } from "@/components/ui/color-mode";
+export interface LogoOptions {
+  type?: LogoType;
+  width?: number;
+  height?: number;
 }
-export enum LogoType {
-  Blue = "blue",
-  White = "white",
-  Black = "black",
-}
+export type LogoType = "black" | "white" | "blue";
 
-export default function Logo({ width, height }: LogoOptions) {
-  const { colorMode } = useColorMode();
-  const __logoType = colorMode === "light" ? LogoType.Black : LogoType.White;
+export default function Logo({ width, height, type }: LogoOptions) {
+  const defaultColor = useColorModeValue("black", "white");
+  const logoType: LogoType = type ?? defaultColor;
 
   return (
     <Link href="/" passHref>
-      <Image
-        src={`/images/ieee/ieee-logo-${__logoType}.svg`}
-        alt="IEEE-ZSB Logo"
-        width={width}
-        height={height}
-        transition="all 0.2s ease-in-out"
-        _hover={{ opacity: 0.9 }}
-      />
+      {width && height ? (
+        <Image
+          asChild
+          transition="all 0.2s ease-in-out"
+          _hover={{ opacity: 0.9 }}
+          alt="IEEE-ZSB Logo"
+        >
+          <NextImage
+            src={`/images/ieee/ieee-logo-${logoType}.svg`}
+            alt="IEEE-ZSB Logo"
+            width={width}
+            height={height}
+          />
+        </Image>
+      ) : (
+        <Image
+          src={`/images/ieee/ieee-logo-${logoType}.svg`}
+          alt="IEEE-ZSB Logo"
+          width={width ?? "auto"}
+          height={height ?? "auto"}
+          transition="all 0.2s ease-in-out"
+          _hover={{ opacity: 0.9 }}
+        />)}
     </Link>
   );
 }
