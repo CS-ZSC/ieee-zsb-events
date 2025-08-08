@@ -3,8 +3,8 @@ import { Provider } from "@/components/ui/provider";
 import { Stack } from "@chakra-ui/react";
 import Header from "@/components/ui/internal/header";
 import Footer from "@/components/ui/internal/footer";
-import "./global.css";
 import { Toaster } from "@/components/ui/toaster";
+import "./global.css";
 
 export const metadata: Metadata = {
   title: "IEEE-ZSB Events Gate",
@@ -18,11 +18,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <body
-        data-new-gr-c-s-check-loaded="8.932.0"
-        data-gr-ext-installed=""
-      >
+    <html lang="en" suppressHydrationWarning data-scroll-behavior="smooth">
+      <body data-new-gr-c-s-check-loaded="8.932.0" data-gr-ext-installed="">
         <Provider>
           <Stack
             gap={0}
@@ -38,7 +35,7 @@ export default function RootLayout({
           <Toaster />
         </Provider>
       </body>
-    </html >
+    </html>
   );
 }
 
