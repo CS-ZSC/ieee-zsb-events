@@ -1,14 +1,11 @@
 "use client";
 import React from "react";
 import { Box, Flex, HStack, Heading } from "@chakra-ui/react";
-import Logo from "@/components/ui/internal/logo";
-import { LogoType } from "@/components/ui/internal/logo";
-import NavButton from "../nav-button";
-import { redirect } from "next/navigation";
 import { useWindowType } from "@/hooks/use-window-type";
 import { ColorModeButton, useColorModeValue } from "../../color-mode";
 import dynamic from "next/dynamic";
 import { MoonLoader } from "react-spinners";
+import NavButton from "@/components/ui/internal/nav-button";
 
 const Logo = dynamic(() => import("@/components/ui/internal/logo"), {
   loading: () => <MoonLoader size={10} />,
@@ -17,9 +14,8 @@ const Logo = dynamic(() => import("@/components/ui/internal/logo"), {
 export default function Header() {
   const { isDesktop } = useWindowType();
   const logoType = useColorModeValue("black", "white");
-  
   return (
-    <Flex justify="center" align="center" margin={16}>
+    <Flex justify="center" align="center" marginY={16}>
       <Box
         p={5}
         as="nav"
@@ -29,7 +25,7 @@ export default function Header() {
         justifyContent="space-between"
         alignItems="center"
         height="20"
-        maxWidth="min(3000px, calc(100% - var(--global-spacing) * 2))"
+        maxWidth="min(3000px, calc(100% - 2 * var(--global-spacing)))"
         width="full"
         minWidth="200px"
         boxShadow="lg"
@@ -44,13 +40,19 @@ export default function Header() {
       >
         <HStack justifyContent="space-between" alignItems="center" width="full">
           <HStack>
-            <Flex align={"center"} justify={"center"} borderRightColor={"neutral-1"} px={2} mx={2} borderRightWidth={isDesktop ? 1 : 0}>
+            <Flex
+              align={"center"}
+              justify={"center"}
+              borderRightColor={"neutral-1"}
+              px={2}
+              borderRightWidth={isDesktop ? 1 : 0}
+            >
               <Logo width={85} height={50} type={logoType} />
             </Flex>
             {isDesktop && <Heading>Events and Competitions</Heading>}
           </HStack>
-          <HStack>
-            <NavButton link="/auth/login" text="Login" />
+          <HStack spaceX={4} alignItems="center">
+            <NavButton link={"/auth/login"} text={"Login"} />
             <ColorModeButton />
           </HStack>
         </HStack>
