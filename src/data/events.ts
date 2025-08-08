@@ -65,9 +65,9 @@ export const eventsData: Event[] = [
     slug: "mutex",
     description:
       "Mutex 2025 is the Delta region's premier technology and entrepreneurship summit, bringing together innovators, startups, and tech enthusiasts for three days of competitions, workshops, and networking opportunities.",
-    link: "/events/mutex-2025",
+    link: "/events/mutex",
     image: "/fake-images/1.webp",
-    registerLink: "/mutex/register",
+    registerLink: "/events/mutex/register",
     overview:
       "This year's Mutex focuses on the fusion of technology and entrepreneurship, offering participants the opportunity to compete, learn, and connect with industry leaders. From hackathons and robotics challenges to startup pitch competitions, Mutex 2025 is where ideas meet execution.",
     competitionsDescription:
