@@ -1,10 +1,10 @@
-"use client"
+"use client";
 import React from "react";
-import { Box, Flex, HStack, Button, Heading } from "@chakra-ui/react";
-import { redirect } from "next/navigation";
+import { Box, Flex, HStack, Heading } from "@chakra-ui/react";
 import Logo from "@/components/ui/internal/logo";
 import { LogoType } from "@/components/ui/internal/logo";
 import { useWindowType } from "@/hooks/use-window-type";
+import NavButton from "../nav-button";
 
 export default function Header() {
   const { isDesktop } = useWindowType();
@@ -12,7 +12,6 @@ export default function Header() {
     <Flex justify="center" align="center" margin={16}>
       <Box
         p={5}
-        mx="15px"
         as="nav"
         position="fixed"
         display="flex"
@@ -20,7 +19,7 @@ export default function Header() {
         justifyContent="space-between"
         alignItems="center"
         height="20"
-        maxWidth="min(3000px, calc(100% - 40px))"
+        maxWidth="min(3000px, calc(100% - var(--global-spacing) * 2))"
         width="full"
         minWidth="200px"
         boxShadow="lg"
@@ -35,28 +34,16 @@ export default function Header() {
       >
         <HStack justifyContent="space-between" alignItems="center" width="full">
           <HStack>
-            <Box borderRightColor={"neutral-1"} px={2} mx={2} borderRightWidth={isDesktop ? 1 : 0}>
+            <Box
+              pr={2}
+              borderRightColor={"neutral-1"}
+              borderRightWidth={isDesktop ? 1 : 0}
+            >
               <Logo logoType={LogoType.White} width={85} height={50} />
             </Box>
             {isDesktop && <Heading>Events and Competitions</Heading>}
           </HStack>
-          <Button
-            variant="outline"
-            width={"fit"}
-            bgColor={"primary-1"}
-            // paddingY={10}
-            rounded="xl"
-            padding={"10px 20px"}
-            justifyContent={"center"}
-            textAlign="center"
-            color="white"
-            transition="all"
-            _hover={{ backgroundColor: "primary-10" }}
-            size={isDesktop ? "xl" : "md"}
-            onClick={() => redirect("/auth/login")}
-          >
-            Login
-          </Button>
+          <NavButton link="/auth/login" text="Login" />
         </HStack>
       </Box>
     </Flex>
