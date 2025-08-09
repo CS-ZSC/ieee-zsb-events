@@ -7,6 +7,7 @@ interface CardProps {
   gap?: string | number;
   bgColor?: string;
   rounded?: string;
+  maxW?: string | number;
 }
 
 export default function Card({
@@ -15,9 +16,14 @@ export default function Card({
   gap = 10,
   bgColor = "primary-5",
   rounded = "2xl",
+  maxW,
 }: CardProps) {
   return (
-    <Flex w="full" h="full">
+    <Flex
+      w="full"
+      h="full"
+      maxW={maxW || "100%"}
+    >
       <Stack
         w="full"
         align="center"

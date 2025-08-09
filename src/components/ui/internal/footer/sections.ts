@@ -36,6 +36,11 @@ export const sections: Section[] = [
 				href: "/account/settings",
 				authHandler: (isAuth) => isAuth,
 			},
+			{
+				name: "Logout",
+				href: "/auth/logout",
+				authHandler: (isAuth) => isAuth,
+			},
 		],
 	},
 	{
