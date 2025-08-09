@@ -1,6 +1,5 @@
 "use client";
 import { useIsAuthenticated, userDataAtom } from "@/atoms/auth";
-import Card from "@/components/ui/internal/card";
 import { useSetAtom } from "jotai";
 import { redirect } from "next/navigation";
 import { Button, Heading, Stack, Text } from "@chakra-ui/react";

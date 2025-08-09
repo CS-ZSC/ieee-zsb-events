@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import { Box, Flex, HStack, Button, Heading, Avatar } from "@chakra-ui/react";
+import { Box, Flex, HStack, Button, Heading } from "@chakra-ui/react";
 import { redirect } from "next/navigation";
 import { useWindowType } from "@/hooks/use-window-type";
 import { useColorModeValue } from "../../color-mode";

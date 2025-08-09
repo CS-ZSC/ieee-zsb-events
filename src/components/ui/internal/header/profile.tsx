@@ -1,11 +1,11 @@
 import { useAuth } from "@/atoms/auth";
 import Card from "../card";
-import { Avatar, Box, Button, Clipboard, Flex, Heading, HStack, SimpleGrid, Stack, Text, useClipboard } from "@chakra-ui/react";
+import { Avatar, Box, Button, Clipboard, Heading, HStack, SimpleGrid, Stack, Text } from "@chakra-ui/react";
 import { toaster } from "../../toaster";
 import { useState } from "react";
 import { useWindowType } from "@/hooks/use-window-type";
 import { redirect } from "next/navigation";
-import { MdOutlineEmail, MdOutlineKey, MdOutlinePermIdentity } from "react-icons/md";
+import { MdOutlineEmail, MdOutlineKey } from "react-icons/md";
 
 export default function Profile() {
     const userData = useAuth();
@@ -74,7 +74,7 @@ export default function Profile() {
                                 bgColor: "primary-2",
                             }}
                             onClick={() => redirect("/profile")}
-                          >Profile</Button>
+                        >Profile</Button>
                         <Button
                             color="primary-9"
                             bg="primary-8"
