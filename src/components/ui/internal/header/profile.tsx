@@ -13,7 +13,7 @@ export default function Profile() {
     const { isDesktop } = useWindowType();
 
     if (userData === null)
-        return <div display="none" />
+        return <Box display={"none"} />
 
 
     return (
@@ -60,7 +60,7 @@ export default function Profile() {
                             </Clipboard.Root>
                         </Stack>
                     </HStack>
-                    <SimpleGrid w="full" justify={"center"} align={"center"} gap={2}>
+                    <SimpleGrid w="full" gap={2}>
                         <Button
                             size={isDesktop ? "lg" : "sm"}
                             type="submit"
