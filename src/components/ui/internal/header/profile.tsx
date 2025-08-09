@@ -12,18 +12,18 @@ export default function Profile() {
     const userData = useAuth();
     const [isOpen, setIsOpen] = useState<boolean>(false);
     const { isDesktop } = useWindowType();
-    const cardRef = useRef(null);
+    const cardRef = useRef<HTMLDivElement | null>(null);
 
     useEffect(() => {
         const handleClickOutside = (event: MouseEvent) => {
-            if (cardRef.current && !(cardRef.current as Node).contains(event.target)) {
+            if (cardRef.current && !cardRef.current.contains(event.target as Node) && isOpen) {
                 setIsOpen(false);
             }
         };
 
         document.addEventListener('mousedown', handleClickOutside);
         return () => document.removeEventListener('mousedown', handleClickOutside);
-    }, []);
+    }, [isOpen, setIsOpen]);
 
     if (userData === null)
         return <Box display={"none"} />

@@ -8,7 +8,7 @@ interface CardProps {
   bgColor?: string;
   rounded?: string;
   maxW?: string | number;
-  backDropFilter?: number | string
+  backDropFilter?: string
 }
 
 export default function Card({
