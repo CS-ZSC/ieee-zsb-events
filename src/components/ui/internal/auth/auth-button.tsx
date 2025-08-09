@@ -1,7 +1,7 @@
 import { Button } from "@chakra-ui/react";
 import React from "react";
 
-export default function AuthButton({ text, loading, loadingText }: { text: string; loading?: boolean; loadingText?: string }) {
+export default function AuthButton({ text }: { text: string }) {
   return (
     <Button
       w={"full"}
@@ -17,8 +17,6 @@ export default function AuthButton({ text, loading, loadingText }: { text: strin
       _hover={{
         bgColor: "primary-2",
       }}
-      loading={loading}
-      loadingText={loadingText}
     >
       {text}
     </Button>

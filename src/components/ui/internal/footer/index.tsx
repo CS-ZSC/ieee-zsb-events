@@ -17,9 +17,11 @@ import Card from "@/components/ui/internal/card";
 import { useWindowType } from "@/hooks/use-window-type";
 import SocialMediaLinks from "@/data/social-media-links";
 import { Icon } from "@iconify/react";
+import { useIsAuthenticated } from "@/atoms/auth";
 
 export default function Footer() {
   const { isDesktop } = useWindowType();
+  const isAuth = useIsAuthenticated();
 
   const [mounted, setMounted] = useState(false);
   useEffect(() => setMounted(true), []);
@@ -33,7 +35,7 @@ export default function Footer() {
           height={isDesktop ? 110 : 65}
         />
         <SimpleGrid
-          columns={isDesktop ? 3 : 2}
+          columns={2}
           justifyContent={"center"}
           w="full"
           gapX={3}
@@ -46,7 +48,12 @@ export default function Footer() {
                 <Heading color={"neutral-1"} marginBottom={1}>
                   {section.title}
                 </Heading>
-                {section.links.map((link, i) => (
+                {section.links.filter(e => {
+                  if (e.authHandler) {
+                    return e.authHandler(isAuth);
+                  }
+                  return true;
+                }).map((link, i) => (
                   <Box
                     key={i}
                     color={"neutral-2"}
