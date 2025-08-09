@@ -17,11 +17,11 @@ import Card from "@/components/ui/internal/card";
 import { useWindowType } from "@/hooks/use-window-type";
 import SocialMediaLinks from "@/data/social-media-links";
 import { Icon } from "@iconify/react";
-import { useAuth } from "@/atoms/auth";
+import { useIsAuthenticated } from "@/atoms/auth";
 
 export default function Footer() {
   const { isDesktop } = useWindowType();
-  const isAuth = useAuth();
+  const isAuth = useIsAuthenticated();
 
   const [mounted, setMounted] = useState(false);
   useEffect(() => setMounted(true), []);

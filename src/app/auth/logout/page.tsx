@@ -1,5 +1,5 @@
 "use client";
-import { useAuth, userDataAtom } from "@/atoms/auth";
+import { useIsAuthenticated, userDataAtom } from "@/atoms/auth";
 import Card from "@/components/ui/internal/card";
 import { useSetAtom } from "jotai";
 import { redirect } from "next/navigation";
@@ -9,7 +9,7 @@ import LogoHorse from "@/components/ui/internal/logo-horse";
 import { FiLogOut } from "react-icons/fi";
 
 export default function Logout() {
-    const isAuth = useAuth();
+    const isAuth = useIsAuthenticated();
     const { isDesktop } = useWindowType();
     const setUserData = useSetAtom(userDataAtom);
 

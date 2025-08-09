@@ -9,7 +9,7 @@ interface Section {
 interface SectionContentLink {
 	name: string;
 	href: string;
-	authHandler?: (boolean) => boolean;
+	authHandler?: (isAuth: boolean) => boolean;
 }
 
 export const sections: Section[] = [
