@@ -22,8 +22,7 @@ export default function Logout() {
     };
 
     return (
-        <Stack w="full" h="full" justify="center" align="center" padding={4}>
-            <Card maxW={isDesktop ? "600px" : "100%"} >
+        <Stack w="full" h="full" mt={-16} justify="center" align="center">
                 <LogoHorse width={300} height={300} />
                 <Stack textAlign={"center"}>
                     <Heading size="md" fontWeight={"bold"}>Are you sure you want to disconnect from the IEEE mainframe?</Heading>
@@ -45,7 +44,6 @@ export default function Logout() {
                 >
                     Logout <FiLogOut />
                 </Button>
-            </Card>
         </Stack >
     );
 }
