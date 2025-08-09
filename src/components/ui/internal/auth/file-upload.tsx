@@ -1,7 +1,7 @@
 import { Box, Button, FileUpload as ChakraFileUpload, Text, Stack, Field, HStack, IconButton } from "@chakra-ui/react"
 import { HiUpload, HiX } from "react-icons/hi"
 import { HiOutlineDocument } from "react-icons/hi2"
-import { useState } from "react"
+import { useRef, useState } from "react"
 
 const shortenFileName = (fileName: string, maxLength: number = 5): string => {
     if (!fileName || fileName.length <= maxLength) return fileName;
@@ -23,15 +23,16 @@ export default function FileUpload({
     setFile,
     isRequired,
     isInvalid,
-    errorMessage
+    errorMessage,
 }: {
     label: string,
-    setFile?: (file: File) => void,
+    setFile?: (file: File | null) => void,
     isRequired?: boolean,
     isInvalid?: boolean,
-    errorMessage?: string
+    errorMessage?: string,
 }) {
     const [fileInfo, setFileInfo] = useState<{ name: string; size: number } | null>(null);
+    const ref = useRef<HTMLInputElement>(null);
 
     function handleOnChange(e: React.ChangeEvent<HTMLInputElement>) {
         if (e.target.files && e.target.files[0] && setFile) {
@@ -44,6 +45,8 @@ export default function FileUpload({
     const clearFile = () => {
         setFileInfo(null);
         if (setFile) setFile(null);
+        if (ref && ref.current)
+            ref.current.value = "";
     };
 
     return (
@@ -54,10 +57,9 @@ export default function FileUpload({
                 alignItems="center"
                 justifyContent={"center"}
                 maxFiles={1}
-                multiple={false}
             >
-                <Stack spacing={2} align="center">
-                    <ChakraFileUpload.HiddenInput onChange={handleOnChange} required={isRequired} />
+                <Stack gap={2} align="center">
+                    <ChakraFileUpload.HiddenInput onChange={handleOnChange} required={isRequired} multiple={false} ref={ref} />
                     <ChakraFileUpload.Trigger asChild>
                         {!fileInfo ? <Button
                             variant="outline"
@@ -86,9 +88,9 @@ export default function FileUpload({
                         >
                             <Stack>
                                 <HStack justify="space-between" align="center">
-                                    <HStack spacing={3}>
+                                    <HStack gap={3}>
                                         <HiOutlineDocument size={24} />
-                                        <Stack spacing={0}>
+                                        <Stack gap={0}>
                                             <Text fontSize="sm" color="neutral-1">
                                                 {shortenFileName(fileInfo.name)}
                                             </Text>
@@ -105,23 +107,15 @@ export default function FileUpload({
                                         onClick={clearFile}
                                     >
                                         <HiX />
-
                                     </IconButton>
                                 </HStack>
                                 <Button
                                     size="xs"
                                     variant="outline"
-                                    leftIcon={<HiUpload />}
                                     w="full"
-                                    onClick={() => {
-                                        const input = document.createElement('input');
-                                        input.type = 'file';
-                                        input.accept = 'image/png,image/jpeg';
-                                        input.onchange = (e) => handleOnChange(e);
-                                        input.click();
-                                    }}
+                                    onClick={() => ref?.current?.click()}
                                 >
-                                    Replace File
+                                    Replace File <HiUpload />
                                 </Button>
                             </Stack>
                         </Box>

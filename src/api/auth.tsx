@@ -1,4 +1,3 @@
-import { toaster } from "@/components/ui/toaster";
 import { API_LINK } from ".";
 
 export interface RegisterData {
@@ -18,13 +17,13 @@ export interface AuthReturnData {
     message: string;
     name: string;
     profileImageURL: string;
-    success: boolean;
+    success: true;
     token: string;
 }
 
 export interface AuthErrorData {
     message: string;
-    success: boolean;
+    success: false;
 }
 
 export async function registerUser(data: RegisterData): Promise<AuthReturnData | AuthErrorData> {
@@ -60,7 +59,7 @@ export async function registerUser(data: RegisterData): Promise<AuthReturnData |
         return { success: false, message: "An error occurred during registration. Please try again." };
     }
 
-    const result: AuthReturnData = await response.json<AuthReturnData>();
+    const result: AuthReturnData = await response.json();
     console.log("Registration result:", result);
 
     return result;

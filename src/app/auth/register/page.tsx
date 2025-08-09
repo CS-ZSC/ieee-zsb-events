@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React from "react";
 import { useForm } from "react-hook-form";
 import Card from "@/components/ui/internal/card";
 import { Box, Flex, HStack, Stack, Text } from "@chakra-ui/react";
@@ -14,6 +14,7 @@ import { RegisterData, registerUser } from "@/api/auth";
 import AvatarUpload from "@/components/ui/internal/auth/avatar-upload";
 import { useSetAtom } from "jotai";
 import { userDataAtom, UserData } from "@/atoms/user";
+import { redirect } from "next/navigation";
 
 type RegisterFormData = {
   fullName: string;
@@ -95,6 +96,8 @@ export default function Register() {
         description: "Your account has been created successfully.",
         duration: 10000
       });
+      
+      redirect("/");
     } else {
       toaster.error({
         closable: true,
@@ -115,6 +118,7 @@ export default function Register() {
               <Text color="neutral-1" fontSize="2rem">
                 Register
               </Text>
+
 
               <Stack w="full" alignItems="center">
                 <Box textAlign="center" mb={4}>
@@ -191,15 +195,15 @@ export default function Register() {
                     label="ID Front Card"
                     setFile={(file) => setValue("idFrontImage", file)}
                     isRequired
-                    isInvalid={!watch("idFrontImage")}
-                    errorMessage={!watch("idFrontImage") ? "Front ID image is required" : undefined}
+                    isInvalid={!!errors.idFrontImage}
+                    errorMessage={errors.idFrontImage?.message}
                   />
                   <FileUpload
                     label="ID Back Card"
                     setFile={(file) => setValue("idBackImage", file)}
                     isRequired
-                    isInvalid={!watch("idBackImage")}
-                    errorMessage={!watch("idBackImage") ? "Back ID image is required" : undefined}
+                    isInvalid={!!errors.idBackImage}
+                    errorMessage={errors.idBackImage?.message}
                   />
                 </HStack>
 
@@ -234,7 +238,15 @@ export default function Register() {
                 />
               </Stack>
 
-              <AuthButton text="Create an account" type="submit" loading={isSubmitting} loadingText="Registering..." />
+              <AuthButton text="Create an account" loading={isSubmitting} loadingText="Registering..." />
+              <Stack>
+              <Text color="neutral-3" fontSize="0.8rem" textAlign="center">
+                Your data is securely encrypted and protected. We take your privacy seriously.
+              </Text>
+              <Text color="neutral-3" fontSize="0.8rem" mt="-2">
+                Why National ID? National ID is required by the university for verification purposes.
+              </Text>
+              </Stack>
 
               <Flex
                 w="full"

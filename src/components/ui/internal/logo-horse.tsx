@@ -1,7 +1,6 @@
 "use client";
 import NextImage from "next/image";
 import { Box, Image } from "@chakra-ui/react";
-import Link from "next/link";
 import { useColorModeValue } from "@/components/ui/color-mode";
 export interface LogoOptions {
   type?: LogoType;

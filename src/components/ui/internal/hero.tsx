@@ -3,12 +3,11 @@ import { useWindowType } from "@/hooks/use-window-type";
 import { Button, Flex, Heading, Stack, Text } from "@chakra-ui/react";
 import LogoHorse from "./logo-horse";
 import { redirect } from "next/navigation";
-import { useAtom } from "jotai";
-import { userDataAtom } from "@/atoms/user";
+import { useAuth } from "@/atoms/auth";
 
 export function Hero() {
     const { isDesktop } = useWindowType();
-    const [userData] = useAtom(userDataAtom);
+    const isAuth = useAuth();
     return (
         <Flex direction={isDesktop ? "row-reverse" : "column"} align={"center"} justify={"center"} w="full" spaceX={isDesktop ? 20 : 0} padding={isDesktop ? 10 : 2}>
             <LogoHorse type="blue" height={isDesktop ? 820 : 400} width={isDesktop ? 820 : 320} />
@@ -17,7 +16,7 @@ export function Hero() {
                     Events and Competitions gate
                 </Heading>
                 <Stack textAlign={isDesktop ? "start" : "center"} maxW={isDesktop ? "500px" : "full"} spaceY={-2} fontSize={"lg"}>
-                    {userData ? (
+                    {isAuth ? (
                         <>
                             <Text>Welcome back! Discover our latest events and competitions.</Text>
                             <Text>Browse through exciting opportunities to showcase your skills and win amazing prizes.</Text>
@@ -29,7 +28,7 @@ export function Hero() {
                         </>
                     )}
                 </Stack>
-                {!userData && <Button
+                {!isAuth && <Button
                     variant="outline"
                     width={"fit"}
                     bgColor={"primary-1"}

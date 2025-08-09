@@ -3,10 +3,10 @@ import React from "react";
 import { Box, Flex, HStack, Button, Heading, Avatar } from "@chakra-ui/react";
 import { redirect } from "next/navigation";
 import { useWindowType } from "@/hooks/use-window-type";
-import { ColorModeButton, useColorModeValue } from "../../color-mode";
+import { useColorModeValue } from "../../color-mode";
 import dynamic from "next/dynamic";
 import { MoonLoader } from "react-spinners";
-import { userDataAtom } from "@/atoms/user";
+import { userDataAtom } from "@/atoms/auth";
 import { useAtom } from "jotai";
 
 const Logo = dynamic(() => import("@/components/ui/internal/logo"), {

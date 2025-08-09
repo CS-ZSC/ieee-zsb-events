@@ -13,6 +13,7 @@ export default function PasswordInput({
 }: InputProps & {
   errorMessage?: string;
   label?: string;
+  isInvalid: boolean;
 }) {
   const [showPassword, setShowPassword] = React.useState(false);
   const ref = useRef<HTMLInputElement>(null);
@@ -30,7 +31,6 @@ export default function PasswordInput({
             me="-2"
             aspectRatio="square"
             size="sm"
-            variant="none"
             height="calc(100% - {spacing.2})"
             aria-label="Toggle password visibility"
             bg="primary-12"

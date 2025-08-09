@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React from "react";
 import { useForm } from "react-hook-form";
 import Card from "@/components/ui/internal/card";
 import { Box, Flex, Stack, Text } from "@chakra-ui/react";
@@ -10,7 +10,7 @@ import Link from "next/link";
 import PasswordInput from "@/components/ui/internal/password-input";
 import { loginUser } from "@/api/auth";
 import { useSetAtom } from "jotai";
-import { userDataAtom, UserData } from "@/atoms/user";
+import { userDataAtom, UserData } from "@/atoms/auth";
 import { toaster } from "@/components/ui/toaster";
 import { redirect } from "next/navigation";
 
@@ -100,7 +100,10 @@ export default function Login() {
 
               </Stack>
 
-              <AuthButton text="Login" type="submit" loading={isSubmitting} loadingText="Logging in..." />
+              <AuthButton text="Login" loading={isSubmitting} loadingText="Logging in..." />
+              <Text color="neutral-3" fontSize="0.9rem" textAlign="center">
+                Your data is securely encrypted and protected. We take your privacy seriously.
+              </Text>
 
               <Flex
                 w="full"
