@@ -5,14 +5,14 @@ import LogoHorse from "./logo-horse";
 import { redirect } from "next/navigation";
 import { useAuth } from "@/atoms/auth";
 
-export function Hero() {
+export default function Hero() {
     const { isDesktop } = useWindowType();
     const isAuth = useAuth();
     return (
         <Flex direction={isDesktop ? "row-reverse" : "column"} align={"center"} justify={"center"} w="full" spaceX={isDesktop ? 20 : 0} padding={isDesktop ? 10 : 2}>
             <LogoHorse type="blue" height={isDesktop ? 820 : 400} width={isDesktop ? 820 : 320} />
             <Stack align={isDesktop ? "start" : "center"} justify={"center"} spaceY={4} maxW={isDesktop ? "500px" : "full"}>
-                <Heading fontSize={isDesktop ? "2rem": "1.8rem"} textAlign={"center"} fontWeight={"bold"}>
+                <Heading fontSize={isDesktop ? "2rem" : "1.8rem"} textAlign={"center"} fontWeight={"bold"}>
                     Events and Competitions gate
                 </Heading>
                 <Stack textAlign={isDesktop ? "start" : "center"} maxW={isDesktop ? "500px" : "full"} spaceY={-2} fontSize={"lg"}>
