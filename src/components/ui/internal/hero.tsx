@@ -3,21 +3,32 @@ import { useWindowType } from "@/hooks/use-window-type";
 import { Button, Flex, Heading, Stack, Text } from "@chakra-ui/react";
 import LogoHorse from "./logo-horse";
 import { redirect } from "next/navigation";
+import { useAuth } from "@/atoms/auth";
 
-export function Hero() {
+export default function Hero() {
     const { isDesktop } = useWindowType();
+    const isAuth = useAuth();
     return (
         <Flex direction={isDesktop ? "row-reverse" : "column"} align={"center"} justify={"center"} w="full" spaceX={isDesktop ? 20 : 0} padding={isDesktop ? 10 : 2}>
-            <LogoHorse type="blue" height={isDesktop ? 720 : 400} width={isDesktop ? 720 : 320}/>
+            <LogoHorse type="blue" height={isDesktop ? 820 : 400} width={isDesktop ? 820 : 320} />
             <Stack align={isDesktop ? "start" : "center"} justify={"center"} spaceY={4} maxW={isDesktop ? "500px" : "full"}>
-                <Heading>
+                <Heading fontSize={isDesktop ? "2rem" : "1.8rem"} textAlign={"center"} fontWeight={"bold"}>
                     Events and Competitions gate
                 </Heading>
-                <Stack textAlign={isDesktop ? "start" : "center"} maxW={isDesktop ? "500px" : "full"} spaceY={1}>
-                    <Text>Learn, compete and win through the events and competitions IEEE-ZSB organizes.</Text>
-                    <Text>Create an account and register to any of the events and competitions easily without entering you data again!</Text>
+                <Stack textAlign={isDesktop ? "start" : "center"} maxW={isDesktop ? "500px" : "full"} spaceY={-2} fontSize={"lg"}>
+                    {isAuth ? (
+                        <>
+                            <Text>Welcome back! Discover our latest events and competitions.</Text>
+                            <Text>Browse through exciting opportunities to showcase your skills and win amazing prizes.</Text>
+                        </>
+                    ) : (
+                        <>
+                            <Text>Discover exciting events and competitions organized by IEEE-ZSB.</Text>
+                            <Text>Join our community today to participate in events, compete with peers, and unlock exclusive opportunities!</Text>
+                        </>
+                    )}
                 </Stack>
-                <Button
+                {!isAuth && <Button
                     variant="outline"
                     width={"fit"}
                     bgColor={"primary-1"}
@@ -31,10 +42,9 @@ export function Hero() {
                     size={isDesktop ? "xl" : "md"}
                     onClick={() => redirect("/auth/register")}
                 >
-                    Create an Account now!
-                </Button>
+                    Join the Tech Revolution!
+                </Button>}
             </Stack>
-
         </Flex>
     )
 }

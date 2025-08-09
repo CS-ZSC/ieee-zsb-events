@@ -1,0 +1,1 @@
+export const API_LINK = "https://ieee-zsb-website.runasp.net/api";

@@ -9,6 +9,7 @@ interface Section {
 interface SectionContentLink {
 	name: string;
 	href: string;
+	authHandler?: (isAuth: boolean) => boolean;
 }
 
 export const sections: Section[] = [
@@ -18,18 +19,27 @@ export const sections: Section[] = [
 			{
 				name: "Create an Account",
 				href: "/auth/register",
+				authHandler: (isAuth) => !isAuth,
 			},
 			{
 				name: "Login",
 				href: "/auth/login",
+				authHandler: (isAuth) => !isAuth,
 			},
 			{
 				name: "Profile",
 				href: "/account",
+				authHandler: (isAuth) => isAuth,
 			},
 			{
 				name: "Settings",
 				href: "/account/settings",
+				authHandler: (isAuth) => isAuth,
+			},
+			{
+				name: "Logout",
+				href: "/auth/logout",
+				authHandler: (isAuth) => isAuth,
 			},
 		],
 	},
@@ -46,17 +56,17 @@ export const sections: Section[] = [
 			},
 		],
 	},
-	{
-		title: "PES DAY",
-		links: [
-			{
-				name: "About PES Day",
-				href: "/events/pes-day",
-			},
-			{
-				name: "Attend PES Day",
-				href: "/events/pes-day/latest",
-			},
-		],
-	},
+	// {
+	// 	title: "PES DAY",
+	// 	links: [
+	// 		{
+	// 			name: "About PES Day",
+	// 			href: "/events/pes-day",
+	// 		},
+	// 		{
+	// 			name: "Attend PES Day",
+	// 			href: "/events/pes-day/latest",
+	// 		},
+	// 	],
+	// },
 ];
