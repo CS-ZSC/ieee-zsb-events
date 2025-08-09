@@ -8,6 +8,7 @@ interface CardProps {
   bgColor?: string;
   rounded?: string;
   maxW?: string | number;
+  backDropFilter?: number | string
 }
 
 export default function Card({
@@ -17,6 +18,7 @@ export default function Card({
   bgColor = "primary-5",
   rounded = "2xl",
   maxW,
+  backDropFilter
 }: CardProps) {
   return (
     <Flex
@@ -34,6 +36,7 @@ export default function Card({
         padding={padding}
         rounded={rounded}
         gapY={gap}
+        backdropFilter={backDropFilter ?? "0"}
       >
         {children}
       </Stack>
