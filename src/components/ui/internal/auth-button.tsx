@@ -1,7 +1,7 @@
 import { Button } from "@chakra-ui/react";
 import React from "react";
 
-export default function AuthButton({ text, loading, loadingText }: { text: string; loading: boolean; loadingText: string }) {
+export default function AuthButton({ text, loading, loadingText }: { text: string; loading?: boolean; loadingText?: string }) {
   return (
     <Button
       w={"full"}

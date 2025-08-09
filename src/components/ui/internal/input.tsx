@@ -12,7 +12,7 @@ export default function Input({
 }: InputProps & {
   errorMessage?: string;
   label?: string;
-  isInvalid: boolean;
+  isInvalid?: boolean;
 }) {
   return (
     <Field.Root invalid={isInvalid} maxW={"400px"} w={"full"}>
