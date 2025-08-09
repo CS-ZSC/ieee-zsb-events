@@ -1,11 +1,13 @@
 "use client"
 import React from "react";
-import { Box, Flex, HStack, Button, Heading } from "@chakra-ui/react";
+import { Box, Flex, HStack, Button, Heading, Avatar } from "@chakra-ui/react";
 import { redirect } from "next/navigation";
 import { useWindowType } from "@/hooks/use-window-type";
 import { ColorModeButton, useColorModeValue } from "../../color-mode";
 import dynamic from "next/dynamic";
 import { MoonLoader } from "react-spinners";
+import { userDataAtom } from "@/atoms/user";
+import { useAtom } from "jotai";
 
 const Logo = dynamic(() => import("@/components/ui/internal/logo"), {
   loading: () => <MoonLoader size={10} />,
@@ -14,6 +16,8 @@ const Logo = dynamic(() => import("@/components/ui/internal/logo"), {
 export default function Header() {
   const { isDesktop } = useWindowType();
   const logoType = useColorModeValue("black", "white");
+  const [userData] = useAtom(userDataAtom);
+
   return (
     <Flex justify="center" align="center" margin={16}>
       <Box
@@ -47,23 +51,29 @@ export default function Header() {
             {isDesktop && <Heading>Events and Competitions</Heading>}
           </HStack>
           <HStack spaceX={4} alignItems="center">
-            <Button
-              variant="outline"
-              width={"fit"}
-              bgColor={"primary-1"}
-              rounded="xl"
-              padding={"10px 20px"}
-              justifyContent={"center"}
-              textAlign="center"
-              color="white"
-              transition="all"
-              _hover={{ backgroundColor: "primary-10" }}
-              size={isDesktop ? "xl" : "md"}
-              onClick={() => redirect("/auth/login")}
-            >
-              Login
-            </Button>
-            <ColorModeButton />
+            {
+              !userData ?
+                <Button
+                  variant="outline"
+                  width={"fit"}
+                  bgColor={"primary-1"}
+                  rounded="xl"
+                  padding={"10px 20px"}
+                  justifyContent={"center"}
+                  textAlign="center"
+                  color="white"
+                  transition="all"
+                  _hover={{ backgroundColor: "primary-10" }}
+                  size={isDesktop ? "xl" : "md"}
+                  onClick={() => redirect("/auth/login")}
+                >
+                  Login
+                </Button> : <Avatar.Root size={"xl"}>
+                  <Avatar.Fallback name={userData?.name} />
+                  <Avatar.Image src={userData?.profileImageURL} />
+                </Avatar.Root>
+            }
+            {/* <ColorModeButton /> */}
           </HStack>
         </HStack>
       </Box>

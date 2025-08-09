@@ -11,8 +11,3 @@ export interface UserData {
 }
 
 export const userDataAtom = atomWithStorage<UserData | null>("userData", null);
-
-export const isAuth = (): boolean => {
-    const userData = JSON.parse(localStorage.getItem("userData") || "null");
-    return userData !== null;
-};

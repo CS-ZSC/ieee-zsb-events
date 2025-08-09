@@ -13,7 +13,7 @@ import PasswordInput from "@/components/ui/internal/password-input";
 import { RegisterData, registerUser } from "@/api/auth";
 import AvatarUpload from "@/components/ui/internal/auth/avatar-upload";
 import { useSetAtom } from "jotai";
-import { userDataAtom, UserData } from "@/atoms/atoms";
+import { userDataAtom, UserData } from "@/atoms/user";
 
 type RegisterFormData = {
   fullName: string;

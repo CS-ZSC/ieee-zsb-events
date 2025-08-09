@@ -10,7 +10,7 @@ import Link from "next/link";
 import PasswordInput from "@/components/ui/internal/password-input";
 import { loginUser } from "@/api/auth";
 import { useSetAtom } from "jotai";
-import { userDataAtom, UserData } from "@/atoms/atoms";
+import { userDataAtom, UserData } from "@/atoms/user";
 import { toaster } from "@/components/ui/toaster";
 import { redirect } from "next/navigation";
 
