@@ -30,12 +30,14 @@ export default function PasswordInput({
             me="-2"
             aspectRatio="square"
             size="sm"
-            variant="ghost"
+            variant="none"
             height="calc(100% - {spacing.2})"
             aria-label="Toggle password visibility"
-            borderColor="primary-3"
             bg="primary-12"
-            color="black"
+            color="natural-2"
+            border={"1px"}
+            borderColor="primary-3"
+            borderRadius={"9px"}
             _hover={{ opacity: 80 }}
             onClick={() => { setShowPassword(!showPassword); ref.current?.focus(); }}
           >

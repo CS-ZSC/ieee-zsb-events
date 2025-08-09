@@ -117,7 +117,7 @@ export default function FileUpload({
                                         const input = document.createElement('input');
                                         input.type = 'file';
                                         input.accept = 'image/png,image/jpeg';
-                                        input.onchange = (e) => handleOnChange(e as any);
+                                        input.onchange = (e) => handleOnChange(e);
                                         input.click();
                                     }}
                                 >
