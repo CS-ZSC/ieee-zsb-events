@@ -8,6 +8,7 @@ import dynamic from "next/dynamic";
 import { MoonLoader } from "react-spinners";
 import { userDataAtom } from "@/atoms/auth";
 import { useAtom } from "jotai";
+import Profile from "./profile";
 
 const Logo = dynamic(() => import("@/components/ui/internal/logo"), {
   loading: () => <MoonLoader size={10} />,
@@ -73,10 +74,7 @@ export default function Header() {
                   onClick={() => redirect("/auth/login")}
                 >
                   Login
-                </Button> : <Avatar.Root size={"xl"}>
-                  <Avatar.Fallback name={userData?.name} />
-                  <Avatar.Image src={userData?.profileImageURL} />
-                </Avatar.Root>
+                </Button> : <Profile />
             }
             {/* <ColorModeButton /> */}
           </HStack>
