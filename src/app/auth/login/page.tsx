@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import Card from "@/components/ui/internal/card";
 import { Box, Flex, Stack, Text } from "@chakra-ui/react";
@@ -8,6 +8,11 @@ import Input from "@/components/ui/internal/input";
 import AuthButton from "@/components/ui/internal/auth-button";
 import Link from "next/link";
 import PasswordInput from "@/components/ui/internal/password-input";
+import { loginUser } from "@/api/auth";
+import { useSetAtom } from "jotai";
+import { userDataAtom, UserData } from "@/atoms/atoms";
+import { toaster } from "@/components/ui/toaster";
+import { redirect } from "next/navigation";
 
 type LoginFormData = {
   email: string;
@@ -15,15 +20,44 @@ type LoginFormData = {
 };
 
 export default function Login() {
-  const { register, handleSubmit, formState: { errors } } = useForm<LoginFormData>({
+  const setUserData = useSetAtom(userDataAtom);
+  const { register, handleSubmit, formState: { errors, isSubmitting } } = useForm<LoginFormData>({
     defaultValues: {
       email: "",
       password: "",
     }
   });
 
-  const onSubmit = (data: LoginFormData) => {
-    console.log("Form data:", data);
+  const onSubmit = async (data: LoginFormData) => {
+    const res = await loginUser(data);
+
+    if (res.success) {
+      const userData: UserData = {
+        email: res.email,
+        id: res.id,
+        inviteUserToken: res.inviteUserToken,
+        name: res.name,
+        profileImageURL: res.profileImageURL,
+        token: res.token
+      };
+      setUserData(userData);
+
+      toaster.success({
+        closable: true,
+        title: "Login Successful",
+        description: "Welcome back!",
+        duration: 10000
+      });
+
+      redirect("/");
+    } else {
+      toaster.error({
+        closable: true,
+        title: "Login Failed",
+        description: res.message,
+        duration: 10000
+      });
+    }
   };
 
   return (
@@ -66,7 +100,7 @@ export default function Login() {
 
               </Stack>
 
-              <AuthButton text="Login" type="submit" />
+              <AuthButton text="Login" type="submit" loading={isSubmitting} loadingText="Logging in..." />
 
               <Flex
                 w="full"
