@@ -1,26 +1,33 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Flex, Text } from "@chakra-ui/react";
 import Card from "@/components/ui/internal/card";
-import Step1RoleSelection from "./step1-role-selection";
-import Step2Attendee from "./step2-attendee";
-import Step2CompetitorType from "./step2-competitor-type";
-import Step3Attendee from "./step3-attendee";
-import Step3Leader from "./step3-leader";
-import Step3Member from "./step3-member";
-import Step4Leader from "./step4-leader";
+import Step1RoleSelection from "@/components/ui/internal/events/mutex/registration/steps/step1-role-selection";
+import Step2Attendee from "@/components/ui/internal/events/mutex/registration/steps/step2-attendee";
+import Step2CompetitorType from "@/components/ui/internal/events/mutex/registration/steps/step2-competitor-type";
+import Step3Attendee from "@/components/ui/internal/events/mutex/registration/steps/step3-attendee";
+import Step3Leader from "@/components/ui/internal/events/mutex/registration/steps/step3-leader";
+import Step3Member from "@/components/ui/internal/events/mutex/registration/steps/step3-member";
+import Step4Leader from "@/components/ui/internal/events/mutex/registration/steps/step4-leader";
 // import Step4Success from "./step4-success";
+import { useRouter } from "next/navigation";
 
 export default function RegistrationWizard() {
   const [step, setStep] = useState(1);
   const [role, setRole] = useState("");
   const [competitorType, setCompetitorType] = useState("");
-
+  const { push } = useRouter();
   const handleNext = () => setStep((prev) => prev + 1);
   const handleBack = () => setStep((prev) => prev - 1);
 
-  console.log(step, role);
+  useEffect(() => {
+    const userData = localStorage.getItem("user-data");
+    if (!userData || !JSON.parse(userData)?.token) {
+      push("/auth/login");
+      return;
+    }
+  }, [push]);
 
   return (
     <Flex
@@ -56,10 +63,7 @@ export default function RegistrationWizard() {
         {step === 3 && role === "attendee" && <Step3Attendee />}
 
         {step === 3 && role === "competitor" && competitorType === "leader" && (
-          <Step3Leader
-            handleBack={handleBack}
-            handleNext={handleNext}
-          />
+          <Step3Leader handleBack={handleBack} handleNext={handleNext} />
         )}
 
         {step === 3 && role === "competitor" && competitorType === "member" && (

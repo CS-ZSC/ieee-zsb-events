@@ -8,16 +8,17 @@ import {
   Text,
 } from "@chakra-ui/react";
 import { Icon } from "@iconify/react";
-import BackButton from "./back-button";
+import BackButton from "../back-button";
 import { toaster } from "@/components/ui/toaster";
 import NavButton from "@/components/ui/internal/nav-button";
+import { useAuth } from "@/atoms/auth";
 
 interface Props {
   handleBack: () => void;
 }
 
 export default function Step3Member({ handleBack }: Props) {
-  console.log("Step 3: Member");
+  const userData = useAuth();
 
   return (
     <VStack color="neutral-1" gap={6} position="relative">
@@ -37,7 +38,7 @@ export default function Step3Member({ handleBack }: Props) {
           </Heading>
         </Box>
       </Flex>
-      <CopyCode code={"ajbja"} />
+      <CopyCode code={userData?.inviteUserToken || ""} />
       <HStack width={"100%"} gap={5}>
         <NavButton link={"/"} text={"Done"} width="100%" />
         <NavButton link={"/account"} text={"See tickets"} width="100%" />
@@ -47,14 +48,15 @@ export default function Step3Member({ handleBack }: Props) {
 }
 
 function CopyCode({ code }: { code: string }) {
+  const userData = useAuth();
   const handleCopy = (e: { preventDefault: () => void }) => {
     e.preventDefault();
     navigator.clipboard.writeText(code);
     toaster.create({
-      title: "Code copied!",
-      description: `${code} has been copied to your clipboard.`,
       type: "success",
-      meta: { closable: true },
+      title: "Invite token Copied!",
+      description: `Your invite token (${userData?.inviteUserToken || ""}) has been copied to your clipboard.`,
+      closable: true,
     });
   };
 

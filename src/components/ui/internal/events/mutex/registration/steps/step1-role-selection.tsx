@@ -1,5 +1,5 @@
 import { VStack, Heading, HStack } from "@chakra-ui/react";
-import CustomButton from "./custom-button";
+import CustomButton from "../custom-button";
 
 interface Props {
   setRole: (role: string) => void;

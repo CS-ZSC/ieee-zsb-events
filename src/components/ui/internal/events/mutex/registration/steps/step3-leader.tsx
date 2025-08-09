@@ -1,20 +1,30 @@
 "use client";
 
-import { VStack, Flex, Box, Heading } from "@chakra-ui/react";
-import BackButton from "./back-button";
-import Input from "@/components/ui/internal/input";
-import CustomButton from "./custom-button";
 import { useState } from "react";
+import { VStack, Flex, Box, Heading } from "@chakra-ui/react";
+import BackButton from "../back-button";
+import Input from "@/components/ui/internal/input";
+import CustomButton from "../custom-button";
 import { Portal, Select, createListCollection } from "@chakra-ui/react";
+import { toaster } from "@/components/ui/toaster";
+import { createTeam } from "@/api/team";
+import { redirect } from "next/navigation";
 
 const Competitions = createListCollection({
   items: [
     { label: "Semaphore", value: "semaphore" },
     { label: "Deadlock CTF", value: "deadlock-ctf" },
-    { label: "Eco-Entrepreneurship", value: "eco-entrepreneurship" },
     { label: "Formula Firefighting", value: "formula-firefighting" },
+    { label: "Eco-Entrepreneurship", value: "eco-entrepreneurship" },
   ],
 });
+
+const competitionIdMap: Record<string, number> = {
+  semaphore: 1,
+  "deadlock-ctf": 3,
+  "formula-firefighting": 4,
+  "eco-entrepreneurship": 5,
+};
 
 export default function Step3Leader({
   handleBack,
@@ -25,10 +35,55 @@ export default function Step3Leader({
 }) {
   const [teamName, setTeamName] = useState("");
   const [selectedCompetition, setSelectedCompetition] = useState<string[]>([]);
+  const [loading, setLoading] = useState(false);
 
-  function handleCreateTeam() {
-    // TODO: Implement team creation logic
-    handleNext();
+  async function handleCreateTeam() {
+    if (!teamName.trim() || !selectedCompetition.length) {
+      toaster.error({
+        closable: true,
+        title: "Missing Fields",
+        description: "Please enter a team name and select a competition.",
+        duration: 3000,
+      });
+      return;
+    }
+
+    const competitionId = competitionIdMap[selectedCompetition[0]];
+    if (competitionId === undefined) {
+      toaster.error({
+        closable: true,
+        title: "Invalid Competition",
+        description: "The selected competition is not recognized.",
+        duration: 3000,
+      });
+      return;
+    }
+
+    setLoading(true);
+
+    const result = await createTeam({
+      name: teamName,
+      competitionId,
+    });
+
+    setLoading(false);
+
+    if (result.success) {
+      toaster.success({
+        closable: true,
+        title: "Team Created",
+        description: "Your team has been successfully created.",
+        duration: 5000,
+      });
+      redirect("/");
+    } else {
+      toaster.error({
+        closable: true,
+        title: "Team Creation Failed",
+        description: result.message || "Please try again later.",
+        duration: 5000,
+      });
+    }
   }
 
   return (
@@ -42,11 +97,9 @@ export default function Step3Leader({
         <Box position="absolute" left={0}>
           <BackButton handleBack={handleBack} />
         </Box>
-        <Box>
-          <Heading size="md" textAlign="center">
-            Create a team
-          </Heading>
-        </Box>
+        <Heading size="md" textAlign="center">
+          Create a team
+        </Heading>
       </Flex>
 
       <Flex flexDir="column" gap={3}>
@@ -58,22 +111,18 @@ export default function Step3Leader({
           onChange={(e) => setTeamName(e.target.value)}
         />
 
-        {/* {teamName && (
-          <Flex pl={4} gap={2}>
-            <Text>Checking name</Text>
-            <Box color="primary-1">
-              <Icon icon={"svg-spinners:270-ring"} width={20} height={20} />
-            </Box>
-          </Flex>
-        )} */}
-
         <DropDownSelection
           selectedCompetition={selectedCompetition}
           setSelectedCompetition={setSelectedCompetition}
         />
       </Flex>
 
-      <CustomButton label="Create team" onClick={handleCreateTeam} />
+      <CustomButton
+        label="Create team"
+        onClick={handleCreateTeam}
+        loading={loading}
+        loadingText="Creating..."
+      />
     </VStack>
   );
 }

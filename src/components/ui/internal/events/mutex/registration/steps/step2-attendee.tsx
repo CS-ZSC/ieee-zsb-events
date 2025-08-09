@@ -1,6 +1,6 @@
 import { VStack, Flex, Box, Heading, Text } from "@chakra-ui/react";
-import BackButton from "./back-button";
-import CustomButton from "./custom-button";
+import BackButton from "../back-button";
+import CustomButton from "../custom-button";
 
 interface Props {
   handleBack: () => void;
