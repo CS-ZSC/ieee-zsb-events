@@ -12,35 +12,37 @@ export default function Profile() {
     const userData = useAuth();
     const [isOpen, setIsOpen] = useState<boolean>(false);
     const { isDesktop } = useWindowType();
-    const cardRef = useRef<HTMLDivElement | null>(null);
+    const containerRef = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
         const handleClickOutside = (event: MouseEvent) => {
-            if (cardRef.current && !cardRef.current.contains(event.target as Node) && isOpen) {
+            if (containerRef.current && !containerRef.current.contains(event.target as Node)) {
                 setIsOpen(false);
             }
         };
 
         document.addEventListener('mousedown', handleClickOutside);
         return () => document.removeEventListener('mousedown', handleClickOutside);
-    }, [isOpen, setIsOpen]);
+    }, []);
 
     if (userData === null)
         return <Box display={"none"} />
 
     return (
-        <Box position={"relative"} w="full">
-            <Avatar.Root size={"xl"} onClick={(e) => {
-                e.stopPropagation();
-                setIsOpen(!isOpen);
-            }}>
+        <Box position={"relative"} w="full" ref={containerRef}>
+            <Avatar.Root 
+                size={"xl"} 
+                onClick={(e) => {
+                    e.stopPropagation();
+                    setIsOpen(!isOpen);
+                }}
+            >
                 <Avatar.Fallback name={userData.name} />
                 <Avatar.Image src={userData.profileImageURL} />
             </Avatar.Root>
             <AnimatePresence>
                 {isOpen && (
                     <motion.div
-                        ref={cardRef}
                         initial={{ opacity: 0, y: -20 }}
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: -20 }}
