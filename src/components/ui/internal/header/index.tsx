@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import React from "react";
 import { Box, Flex, HStack, Button, Heading, Avatar } from "@chakra-ui/react";
 import { redirect } from "next/navigation";
@@ -19,10 +19,9 @@ export default function Header() {
   const [userData] = useAtom(userDataAtom);
 
   return (
-    <Flex justify="center" align="center" margin={16}>
+    <Flex justify="center" align="center" marginY={16}>
       <Box
         p={5}
-        mx="15px"
         as="nav"
         position="fixed"
         display="flex"
@@ -30,7 +29,7 @@ export default function Header() {
         justifyContent="space-between"
         alignItems="center"
         height="20"
-        maxWidth="min(3000px, calc(100% - 40px))"
+        maxWidth="min(3000px, calc(100% - 2 * var(--global-spacing)))"
         width="full"
         minWidth="200px"
         boxShadow="lg"
@@ -45,7 +44,13 @@ export default function Header() {
       >
         <HStack justifyContent="space-between" alignItems="center" width="full">
           <HStack>
-            <Flex align={"center"} justify={"center"} borderRightColor={"neutral-1"} px={2} mx={2} borderRightWidth={isDesktop ? 1 : 0}>
+            <Flex
+              align={"center"}
+              justify={"center"}
+              borderRightColor={"neutral-1"}
+              px={2}
+              borderRightWidth={isDesktop ? 1 : 0}
+            >
               <Logo width={85} height={50} type={logoType} />
             </Flex>
             {isDesktop && <Heading>Events and Competitions</Heading>}

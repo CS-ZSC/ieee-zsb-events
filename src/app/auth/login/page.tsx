@@ -96,8 +96,6 @@ export default function Login() {
                   isInvalid={!!errors.password}
                   errorMessage={errors.password?.message}
                 />
-
-
               </Stack>
 
               <AuthButton text="Login" loading={isSubmitting} loadingText="Logging in..." />
