@@ -22,7 +22,7 @@ export default function CompetitionCard({
           bgColor={"primary-5"}
           border="1px solid"
           borderColor="primary-3"
-          padding={"var(--global-spacing)"}
+          padding={3}
           rounded={"2xl"}
           gap={2}
         >
@@ -34,7 +34,7 @@ export default function CompetitionCard({
           <Text color={"neutral-2"}>{competition.description}</Text>
           <NavButton
             link={competition.link}
-            text="Register Now!"
+            text="More about Competition"
             width={"full"}
           />
         </Stack>

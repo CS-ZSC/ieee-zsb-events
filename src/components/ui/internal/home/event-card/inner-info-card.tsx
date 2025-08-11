@@ -34,7 +34,7 @@ export function InnerInfoCard({ name, link, description }: InnerInfoCardProps) {
                     size={isDesktop ? "md" : "md"}
                     onClick={() => redirect(link)}
                 >
-                    Register
+                    View Event
                 </Button>
             </Stack>
         </HStack >
