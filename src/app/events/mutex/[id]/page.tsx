@@ -158,14 +158,14 @@ export default async function CompetitionPage({
           </SectionContainer>
         )}
 
-        <SectionContainer>
+        {competition.rulebook && <SectionContainer>
           <SectionTitle title="Rules" />
           <SectionDescription description={competition.rulesDescription} />
           <DownloadButton
             link={competition.rulebook}
             text="Download Rulebook"
           />
-        </SectionContainer>
+        </SectionContainer>}
 
         <SectionContainer>
           <SectionDescription
