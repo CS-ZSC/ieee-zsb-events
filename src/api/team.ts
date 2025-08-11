@@ -1,4 +1,3 @@
-// src/api/team.ts
 import { API_LINK } from ".";
 import { getDefaultStore } from "jotai";
 import { userDataAtom } from "@/atoms/auth";

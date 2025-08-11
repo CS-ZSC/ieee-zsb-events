@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import { Stack } from "@chakra-ui/react";
 import Container from "@/components/ui/internal/container";
 import PageTitle from "@/components/ui/internal/page-title";
@@ -7,15 +7,14 @@ import { eventsData } from "@/data/events";
 import dynamic from "next/dynamic";
 import { MoonLoader } from "react-spinners";
 
-const Hero  = dynamic(() => import("@/components/ui/internal/hero"), {
+const Hero = dynamic(() => import("@/components/ui/internal/hero"), {
   loading: () => <MoonLoader size={50} />,
-  ssr: false
+  ssr: false,
 });
-
 
 export default function Home() {
   return (
-    <Stack align={"center"}>
+    <Stack align={"center"} gap={5}>
       <Hero />
       <Container>
         <PageTitle title="Our events and competitions" />

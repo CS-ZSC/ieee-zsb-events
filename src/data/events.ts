@@ -66,8 +66,8 @@ export const eventsData: Event[] = [
     description:
       "Mutex 2025 is the Delta region's premier technology and entrepreneurship summit, bringing together innovators, startups, and tech enthusiasts for three days of competitions, workshops, and networking opportunities.",
     link: "/events/mutex",
-    image: "/fake-images/1.webp",
-    registerLink: "/events/mutex/registration",
+    image: "/events/mutex/mutex.png",
+    registerLink: "https://bit.ly/MUTEX_SUMMIT_25",
     overview:
       "This year's Mutex focuses on the fusion of technology and entrepreneurship, offering participants the opportunity to compete, learn, and connect with industry leaders. From hackathons and robotics challenges to startup pitch competitions, Mutex 2025 is where ideas meet execution.",
     competitionsDescription:
@@ -77,7 +77,7 @@ export const eventsData: Event[] = [
         id: mutualId++,
         name: "Semaphore",
         shortName: "semaphore",
-        image: "/fake-images/1.webp",
+        image: "/events/mutex/competitions/semaphore.png",
         description:
           "A timed coding challenge testing problem-solving, algorithmic thinking, and efficiency, offering a competitive platform to enhance skills and impress tech recruiters.",
         link: "/events/mutex/semaphore",
@@ -98,7 +98,7 @@ export const eventsData: Event[] = [
         id: mutualId++,
         name: "Deadlock CTF",
         shortName: "deadlock",
-        image: "/fake-images/1.webp",
+        image: "/events/mutex/competitions/deadlock.png",
         description:
           "A cybersecurity contest solving cryptography, hacking, and forensics challenges to capture digital flags under pressure in a controlled environment.",
         link: "/events/mutex/deadlock",
@@ -119,7 +119,7 @@ export const eventsData: Event[] = [
         id: mutualId++,
         name: "Formula Firefighting",
         shortName: "fire-fighting",
-        image: "/fake-images/1.webp",
+        image: "/events/mutex/competitions/ffc.png",
         description:
           "A robotics challenge to design autonomous robots that detect and extinguish fires, testing engineering, innovation, and teamwork in dynamic environments.",
         link: "/events/mutex/fire-fighting",
@@ -140,7 +140,7 @@ export const eventsData: Event[] = [
         id: mutualId++,
         name: "ECO-Entrepreneurship",
         shortName: "eco-e",
-        image: "/fake-images/1.webp",
+        image: "/events/mutex/competitions/enrginity.png",
         description:
           "A sustainability challenge creating smart city solutions using IoT and big data to enhance urban living, combining innovation, environmental responsibility, and economic growth.",
         link: "/events/mutex/eco-e",
@@ -160,48 +160,48 @@ export const eventsData: Event[] = [
     ],
     speakersDescription:
       "Our lineup features entrepreneurs, engineers, and innovators delivering inspiring talks and hands-on workshops.",
-    speakers: [
-      {
-        id: mutualId++,
-        name: "Dr. Lina Farouk",
-        title: "Smart Cities Researcher",
-        email: "lina.farouk@example.com",
-        linkedin: "https://linkedin.com/in/linafarouk",
-        avatarSrc: "/fake-images/1.webp",
-      },
-      {
-        id: mutualId++,
-        name: "Omar Hany",
-        title: "Cybersecurity Specialist",
-        email: "omar.hany@example.com",
-        linkedin: "https://linkedin.com/in/omarhany",
-        avatarSrc: "/fake-images/1.webp",
-      },
-      {
-        id: mutualId++,
-        name: "Sara El-Masry",
-        title: "GreenTech Entrepreneur",
-        email: "sara.elmasry@example.com",
-        linkedin: "https://linkedin.com/in/saraelmasry",
-        avatarSrc: "/fake-images/1.webp",
-      },
-      {
-        id: mutualId++,
-        name: "John Mikhail",
-        title: "AI & IoT Innovator",
-        email: "john.mikhail@example.com",
-        linkedin: "https://linkedin.com/in/johnmikhail",
-        avatarSrc: "/fake-images/1.webp",
-      },
-    ],
+    // speakers: [
+    //   {
+    //     id: mutualId++,
+    //     name: "Dr. Lina Farouk",
+    //     title: "Smart Cities Researcher",
+    //     email: "lina.farouk@example.com",
+    //     linkedin: "https://linkedin.com/in/linafarouk",
+    //     avatarSrc: "/fake-images/1.webp",
+    //   },
+    //   {
+    //     id: mutualId++,
+    //     name: "Omar Hany",
+    //     title: "Cybersecurity Specialist",
+    //     email: "omar.hany@example.com",
+    //     linkedin: "https://linkedin.com/in/omarhany",
+    //     avatarSrc: "/fake-images/1.webp",
+    //   },
+    //   {
+    //     id: mutualId++,
+    //     name: "Sara El-Masry",
+    //     title: "GreenTech Entrepreneur",
+    //     email: "sara.elmasry@example.com",
+    //     linkedin: "https://linkedin.com/in/saraelmasry",
+    //     avatarSrc: "/fake-images/1.webp",
+    //   },
+    //   {
+    //     id: mutualId++,
+    //     name: "John Mikhail",
+    //     title: "AI & IoT Innovator",
+    //     email: "john.mikhail@example.com",
+    //     linkedin: "https://linkedin.com/in/johnmikhail",
+    //     avatarSrc: "/fake-images/1.webp",
+    //   },
+    // ],
     sponsorsDescription:
       "Mutex 2025 is supported by leading tech companies, incubators, and educational institutions committed to fostering innovation.",
-    sponsors: [
-      { id: mutualId++, image: "/fake-images/1.webp" },
-      { id: mutualId++, image: "/fake-images/1.webp" },
-      { id: mutualId++, image: "/fake-images/1.webp" },
-      { id: mutualId++, image: "/fake-images/1.webp" },
-      { id: mutualId++, image: "/fake-images/1.webp" },
-    ],
+    // sponsors: [
+    //   { id: mutualId++, image: "/fake-images/1.webp" },
+    //   { id: mutualId++, image: "/fake-images/1.webp" },
+    //   { id: mutualId++, image: "/fake-images/1.webp" },
+    //   { id: mutualId++, image: "/fake-images/1.webp" },
+    //   { id: mutualId++, image: "/fake-images/1.webp" },
+    // ],
   },
 ];

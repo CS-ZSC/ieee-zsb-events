@@ -1,14 +1,10 @@
 "use client";
 import React from "react";
-import { Box, Flex, HStack, Button, Heading } from "@chakra-ui/react";
-import { redirect } from "next/navigation";
+import { Box, Flex, HStack, Heading } from "@chakra-ui/react";
 import { useWindowType } from "@/hooks/use-window-type";
-import { useColorModeValue } from "../../color-mode";
+import { ColorModeButton, useColorModeValue } from "../../color-mode";
 import dynamic from "next/dynamic";
 import { MoonLoader } from "react-spinners";
-import { userDataAtom } from "@/atoms/auth";
-import { useAtom } from "jotai";
-import Profile from "./profile";
 
 const Logo = dynamic(() => import("@/components/ui/internal/logo"), {
   loading: () => <MoonLoader size={10} />,
@@ -17,7 +13,7 @@ const Logo = dynamic(() => import("@/components/ui/internal/logo"), {
 export default function Header() {
   const { isDesktop } = useWindowType();
   const logoType = useColorModeValue("black", "white");
-  const [userData] = useAtom(userDataAtom);
+  // const [userData] = useAtom(userDataAtom);
 
   return (
     <Flex justify="center" align="center" marginY={16}>
@@ -57,7 +53,7 @@ export default function Header() {
             {isDesktop && <Heading>Events and Competitions</Heading>}
           </HStack>
           <HStack spaceX={4} alignItems="center">
-            {
+            {/* {
               !userData ?
                 <Button
                   variant="outline"
@@ -75,8 +71,8 @@ export default function Header() {
                 >
                   Login
                 </Button> : <Profile />
-            }
-            {/* <ColorModeButton /> */}
+            } */}
+            <ColorModeButton />
           </HStack>
         </HStack>
       </Box>

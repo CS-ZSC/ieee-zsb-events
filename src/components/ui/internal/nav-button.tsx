@@ -12,9 +12,8 @@ export default function NavButton({
   text: string;
   width?: string;
 }) {
-
   return (
-    <Link href={link} textDecoration={"none"} width={width}>
+    <Link href={link} textDecoration={"none"} width={width} target="_blank">
       <Button
         variant="outline"
         width={width}

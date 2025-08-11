@@ -36,7 +36,7 @@ export default function Page() {
           title="Mutex"
           description={event?.description || "Mutex Event Description"}
           imagePath={event?.image || "/events/mutex/mutex-2024.webp"}
-          buttonLink={event?.registerLink || "/mutex/register"}
+          buttonLink={event?.registerLink || "/https://bit.ly/MUTEX_SUMMIT_25"}
         />
 
         <SectionContainer>
