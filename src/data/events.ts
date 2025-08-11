@@ -88,7 +88,7 @@ export const eventsData: Event[] = [
           "Top problem-solvers will receive cash prizes and recognition certificates.",
         // trophies: [
         //   { id: mutualId++, place: "2nd", amount: "10,000 LE" },
-        //   { id: mutualId++, place: "1st", amount: "20,000 LE" },
+        //   { id: mutualId++, place: "1st", amount: "15,000 LE" },
         //   { id: mutualId++, place: "3rd", amount: "5,000 LE" },
         // ],
         rulesDescription:
@@ -108,7 +108,7 @@ export const eventsData: Event[] = [
         trophiesDescription:
           "Prizes for the top three teams, plus exclusive mentorship with cybersecurity experts.",
         // trophies: [
-        //   { id: mutualId++, place: "2nd", amount: "8,000 LE" },
+        //   { id: mutualId++, place: "2nd", amount: "10,000 LE" },
         //   { id: mutualId++, place: "1st", amount: "15,000 LE" },
         //   { id: mutualId++, place: "3rd", amount: "5,000 LE" },
         // ],
@@ -129,9 +129,9 @@ export const eventsData: Event[] = [
         trophiesDescription:
           "Awards will be given for speed, efficiency, and innovative robot design.",
         // trophies: [
-        //   { id: mutualId++, place: "2nd", amount: "7,000 LE" },
-        //   { id: mutualId++, place: "1st", amount: "12,000 LE" },
-        //   { id: mutualId++, place: "3rd", amount: "4,000 LE" },
+        //   { id: mutualId++, place: "2nd", amount: "15,000 LE" },
+        //   { id: mutualId++, place: "1st", amount: "20,000 LE" },
+        //   { id: mutualId++, place: "3rd", amount: "10,000 LE" },
         // ],
         rulesDescription:
           "All participants must follow the official guidelines detailed in the competition rulebook. Review the full rules via the provided link before competing.",
@@ -150,8 +150,8 @@ export const eventsData: Event[] = [
         trophiesDescription:
           "Cash prizes for the top three innovative projects.",
         // trophies: [
-        //   { id: mutualId++, place: "2nd", amount: "15,000 LE" },
         //   { id: mutualId++, place: "1st", amount: "25,000 LE" },
+        //   { id: mutualId++, place: "2nd", amount: "15,000 LE" },
         //   { id: mutualId++, place: "3rd", amount: "8,000 LE" },
         // ],
         rulesDescription:

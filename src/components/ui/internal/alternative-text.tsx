@@ -8,6 +8,7 @@ export default function AlternativeText({ text }: { text: string }) {
       fontSize={"1.5rem"}
       fontWeight={"bold"}
       fontStyle={"italic"}
+      textAlign={"center"}
     >
       {text}
     </Text>

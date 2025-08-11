@@ -44,8 +44,8 @@ export default function Header() {
             <Flex
               align={"center"}
               justify={"center"}
+              pr={2}
               borderRightColor={"neutral-1"}
-              px={2}
               borderRightWidth={isDesktop ? 1 : 0}
             >
               <Logo width={85} height={50} type={logoType} />
