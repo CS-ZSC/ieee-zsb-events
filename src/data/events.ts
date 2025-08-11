@@ -17,7 +17,7 @@ export interface Competition {
   image: string;
   description: string;
   link: string;
-  rulebook: string;
+  rulebook?: string;
   overview: string;
   trophiesDescription: string;
   trophies?: Trophy[];

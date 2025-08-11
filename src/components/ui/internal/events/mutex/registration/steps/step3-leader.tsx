@@ -28,6 +28,7 @@ const competitionIdMap: Record<string, number> = {
 
 export default function Step3Leader({
   handleBack,
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   handleNext,
 }: {
   handleBack: () => void;
