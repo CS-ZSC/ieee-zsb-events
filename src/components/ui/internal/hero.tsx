@@ -13,12 +13,12 @@ export default function Hero() {
       justify={"center"}
       w="full"
       spaceX={isDesktop ? 20 : 0}
-      padding={isDesktop ? 10 : 2}
+      padding={isDesktop ? 8 : 2}
     >
       <LogoHorse
         type="blue"
-        height={isDesktop ? 820 : 400}
-        width={isDesktop ? 820 : 320}
+        height={isDesktop ? 720 : 400}
+        width={isDesktop ? 720 : 320}
       />
       <Stack
         align={isDesktop ? "start" : "center"}
@@ -35,9 +35,9 @@ export default function Hero() {
         </Heading>
         <Stack
           textAlign={isDesktop ? "start" : "center"}
-          maxW={isDesktop ? "500px" : "full"}
+          maxW={isDesktop ? "600px" : "full"}
           spaceY={-2}
-          fontSize={"lg"}
+          fontSize={"md"}
         >
           <Text>
             Discover exciting events and competitions organized by IEEE-ZSB.
