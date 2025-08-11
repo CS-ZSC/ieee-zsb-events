@@ -61,7 +61,7 @@ export default function Login() {
   };
 
   return (
-    <Flex justify="center" w="full" h="40vw" align="center">
+    <Flex justify="center" w="full" h="full" align="center">
       <Box maxW="720px" w="full" h="fit-content">
         <Card>
           <form onSubmit={handleSubmit(onSubmit)} style={{ width: "100%" }}>
