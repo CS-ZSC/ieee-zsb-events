@@ -13,36 +13,36 @@ interface SectionContentLink {
 }
 
 export const sections: Section[] = [
-	{
-		title: "Quick Access",
-		links: [
-			{
-				name: "Create an Account",
-				href: "/auth/register",
-				authHandler: (isAuth) => !isAuth,
-			},
-			{
-				name: "Login",
-				href: "/auth/login",
-				authHandler: (isAuth) => !isAuth,
-			},
-			{
-				name: "Profile",
-				href: "/account",
-				authHandler: (isAuth) => isAuth,
-			},
-			{
-				name: "Settings",
-				href: "/account/settings",
-				authHandler: (isAuth) => isAuth,
-			},
-			{
-				name: "Logout",
-				href: "/auth/logout",
-				authHandler: (isAuth) => isAuth,
-			},
-		],
-	},
+	// {
+	// 	title: "Quick Access",
+	// 	links: [
+	// 		{
+	// 			name: "Create an Account",
+	// 			href: "/auth/register",
+	// 			authHandler: (isAuth) => !isAuth,
+	// 		},
+	// 		{
+	// 			name: "Login",
+	// 			href: "/auth/login",
+	// 			authHandler: (isAuth) => !isAuth,
+	// 		},
+	// 		{
+	// 			name: "Profile",
+	// 			href: "/account",
+	// 			authHandler: (isAuth) => isAuth,
+	// 		},
+	// 		{
+	// 			name: "Settings",
+	// 			href: "/account/settings",
+	// 			authHandler: (isAuth) => isAuth,
+	// 		},
+	// 		{
+	// 			name: "Logout",
+	// 			href: "/auth/logout",
+	// 			authHandler: (isAuth) => isAuth,
+	// 		},
+	// 	],
+	// },
 	{
 		title: "MUTEX",
 		links: [
@@ -52,21 +52,29 @@ export const sections: Section[] = [
 			},
 			{
 				name: "Attend Mutex",
-				href: "/events/mutex/latest",
+				href: "https://bit.ly/MUTEX_SUMMIT_25",
 			},
 		],
 	},
-	// {
-	// 	title: "PES DAY",
-	// 	links: [
-	// 		{
-	// 			name: "About PES Day",
-	// 			href: "/events/pes-day",
-	// 		},
-	// 		{
-	// 			name: "Attend PES Day",
-	// 			href: "/events/pes-day/latest",
-	// 		},
-	// 	],
-	// },
+	{
+		title: "Competitions",
+		links: [
+			{
+				name: "Semaphore",
+				href: "/events/mutex/semaphore",
+			},
+			{
+				name: "Deadloock CTF",
+				href: "/events/mutex/deadlock",
+			},
+			{
+				name: "Formula Firefighting",
+				href: "/events/mutex/fire-fighting",
+			},
+			{
+				name: "ECO-Entrepreneurship",
+				href: "/events/mutex/eco-e",
+			},
+		],
+	},
 ];
