@@ -51,7 +51,7 @@ export const sections: Section[] = [
 				href: "/events/mutex",
 			},
 			{
-				name: "Attend Mutex",
+				name: "Mutex Summit'25 Registration",
 				href: "https://bit.ly/MUTEX_SUMMIT_25",
 			},
 		],
