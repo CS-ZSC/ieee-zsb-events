@@ -57,7 +57,7 @@ export default function HeroSection({
           {ruleBook && (
             <NavButton
               link={ruleBook}
-              text="Download Rule-book"
+              text="View Rule-book"
               bgColor="primary-8"
               color="neutral-5"
             />
@@ -67,3 +67,4 @@ export default function HeroSection({
     </Flex>
   );
 }
+
