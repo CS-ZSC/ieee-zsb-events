@@ -15,7 +15,7 @@ export async function generateMetadata({
 }: {
   params: Promise<{ id: string }>;
 }): Promise<Metadata> {
-  const { id } = await params; // ✅ await before destructuring
+  const { id } = await params;
 
   const event = eventsData.find((event) =>
     event.competitions.some(
@@ -95,10 +95,16 @@ export default async function CompetitionPage({
                 if (trophy.place === "1st") bgColor = "primary-1";
                 else if (trophy.place === "2nd") bgColor = "primary-3";
                 else if (trophy.place === "3rd") bgColor = "primary-11";
+                else bgColor = "primary-10";
 
                 return (
                   <Flex key={trophy.id} direction="column" align="center">
-                    <Text fontWeight="bold" color="neutral-1" mb={2}>
+                    <Text
+                      fontWeight="bold"
+                      color="neutral-1"
+                      fontSize={"2xl"}
+                      mb={2}
+                    >
                       {trophy.amount}
                     </Text>
                     <Box
@@ -127,7 +133,7 @@ export default async function CompetitionPage({
 
             <Flex direction="column" align="flex-start" gap={4} mt={10}>
               {competition.certificates?.map((certificate, index) => {
-                const barWidths = [50, 100, 150];
+                const barWidths = [100, 150, 200];
                 const width = barWidths[index] || 150;
 
                 return (
@@ -158,14 +164,16 @@ export default async function CompetitionPage({
           </SectionContainer>
         )}
 
-        {competition.rulebook && <SectionContainer>
-          <SectionTitle title="Rules" />
-          <SectionDescription description={competition.rulesDescription} />
-          <DownloadButton
-            link={competition.rulebook}
-            text="Download Rulebook"
-          />
-        </SectionContainer>}
+        {competition.rulebook && (
+          <SectionContainer>
+            <SectionTitle title="Rules" />
+            <SectionDescription description={competition.rulesDescription} />
+            <DownloadButton
+              link={competition.rulebook}
+              text="Download Rulebook"
+            />
+          </SectionContainer>
+        )}
 
         <SectionContainer>
           <SectionDescription
