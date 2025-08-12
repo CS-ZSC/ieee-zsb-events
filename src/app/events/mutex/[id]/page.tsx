@@ -168,9 +168,11 @@ export default async function CompetitionPage({
           <SectionContainer>
             <SectionTitle title="Rules" />
             <SectionDescription description={competition.rulesDescription} />
-            <DownloadButton
+            <NavButton
               link={competition.rulebook}
-              text="View Rulebook"
+              text="View Rule-book"
+              bgColor="primary-8"
+              color="neutral-5"
             />
           </SectionContainer>
         )}
@@ -185,4 +187,5 @@ export default async function CompetitionPage({
     </PageWrapper>
   );
 }
+
 
