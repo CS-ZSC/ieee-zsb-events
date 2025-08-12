@@ -170,7 +170,7 @@ export default async function CompetitionPage({
             <SectionDescription description={competition.rulesDescription} />
             <DownloadButton
               link={competition.rulebook}
-              text="Download Rulebook"
+              text="View Rulebook"
             />
           </SectionContainer>
         )}
@@ -185,3 +185,4 @@ export default async function CompetitionPage({
     </PageWrapper>
   );
 }
+
