@@ -5,7 +5,6 @@ import { Flex, Text } from "@chakra-ui/react";
 import ImageBox from "@/components/ui/internal/image-box";
 import NavButton from "@/components/ui/internal/nav-button";
 import { useWindowType } from "@/hooks/use-window-type";
-import DownloadButton from "../../download-button";
 
 interface HeroSectionProps {
   title: string;
@@ -56,10 +55,16 @@ export default function HeroSection({
         <Flex gap={4} flexWrap="wrap">
           <NavButton link={buttonLink} text="Register Now!" />
           {ruleBook && (
-            <DownloadButton link={ruleBook} text="Download Rule-book" />
+            <NavButton
+              link={ruleBook}
+              text="View Rule-book"
+              bgColor="primary-8"
+              color="neutral-5"
+            />
           )}
         </Flex>
       </Flex>
     </Flex>
   );
 }
+
