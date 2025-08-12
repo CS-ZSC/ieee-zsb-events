@@ -81,7 +81,7 @@ export const eventsData: Event[] = [
         description:
           "A timed coding challenge testing problem-solving, algorithmic thinking, and efficiency, offering a competitive platform to enhance skills and impress tech recruiters.",
         link: "/events/mutex/semaphore",
-        // rulebook: "/files/rulebooks/semaphore.pdf",
+        rulebook: "https://bit.ly/Semaphore_Rulebook_25",
         overview:
           "A fast-paced, intellectually demanding coding showdown where individuals and teams solve algorithmic problems under strict time limits. The competition's challenges span multiple domains — from data structures and dynamic programming to graph theory and optimization — requiring participants to think critically, code efficiently, and debug under pressure. Each round grows progressively harder, pushing participants to the limits of their problem-solving abilities. Beyond testing technical skills, Semaphore encourages collaboration, knowledge sharing, and the exploration of new algorithms. Top performers not only earn prizes but also gain visibility among recruiters from leading tech firms attending Mutex.",
         trophiesDescription:
@@ -102,7 +102,7 @@ export const eventsData: Event[] = [
         description:
           "A cybersecurity contest solving cryptography, hacking, and forensics challenges to capture digital flags under pressure in a controlled environment.",
         link: "/events/mutex/deadlock",
-        // rulebook: "/files/rulebooks/deadlock.pdf",
+        rulebook: "https://bit.ly/Deadlock_Rulebook_25",
         overview:
           "A high-stakes cybersecurity competition where participants compete to capture virtual “flags” hidden in intentionally vulnerable systems. The event covers a wide range of cybersecurity disciplines, including web exploitation, reverse engineering, binary analysis, cryptography, digital forensics, and network security. Challenges vary from beginner-friendly to advanced, ensuring engagement for both newcomers and seasoned ethical hackers. Teams work against the clock to identify vulnerabilities, exploit them ethically, and secure points before rivals do. Deadlock not only tests technical skill but also strategic thinking, teamwork, and adaptability — all critical traits in the fast-evolving world of cybersecurity. Top teams will gain recognition from security firms and potential recruitment opportunities.",
         trophiesDescription:
@@ -123,7 +123,7 @@ export const eventsData: Event[] = [
         description:
           "A robotics challenge to design autonomous robots that detect and extinguish fires, testing engineering, innovation, and teamwork in dynamic environments.",
         link: "/events/mutex/fire-fighting",
-        rulebook: "/files/rulebooks/fire-fighting.pdf",
+        rulebook: "https://bit.ly/FFC_Rulebook_25",
         overview:
           "An intense robotics engineering challenge where teams design, build, and program autonomous robots to detect and extinguish simulated fires in a controlled arena. The competition requires participants to integrate hardware design, sensor systems, real-time decision-making algorithms, and mechanical precision into a single, cohesive machine. The arena features varying layouts and obstacles to test adaptability, navigation, and efficiency under realistic conditions. Teams must balance speed and accuracy, as points are awarded not just for putting out fires but for safe and strategic execution. This event is an opportunity for robotics enthusiasts to showcase creativity, engineering excellence, and teamwork.",
         trophiesDescription:
@@ -146,7 +146,7 @@ export const eventsData: Event[] = [
         description:
           "A sustainability challenge creating smart city solutions using IoT and big data to enhance urban living, combining innovation, environmental responsibility, and economic growth.",
         link: "/events/mutex/eco-e",
-        // rulebook: "/files/rulebooks/eco-e.pdf",
+        rulebook: "https://bit.ly/Enrginity_Rulebook_25",
         overview:
           "Participants will develop innovative, sustainable business models addressing the challenges of modern urban living. This year's theme, “Unlock the Future of Urban Living”, emphasizes the use of smart technologies, IoT, and big data to improve the quality of life in cities. Competitors will work in multidisciplinary teams to design solutions that are environmentally friendly, economically viable, and socially impactful. Throughout the competition, they will receive mentorship from industry experts, refine their pitches, and present to a panel of investors, startup incubators, and sustainability specialists. The goal is to inspire projects that can transition from concept to market-ready solutions, making tangible improvements in urban communities.",
         trophiesDescription:
@@ -217,3 +217,4 @@ export const eventsData: Event[] = [
     // ],
   },
 ];
+
