@@ -87,8 +87,8 @@ export const eventsData: Event[] = [
         trophiesDescription:
           "Top problem-solvers will receive cash prizes.",
         trophies: [
-          { id: mutualId++, place: "2nd", amount: "10,000 LE" },
           { id: mutualId++, place: "1st", amount: "15,000 LE" },
+          { id: mutualId++, place: "2nd", amount: "10,000 LE" },
           { id: mutualId++, place: "3rd", amount: "5,000 LE" },
         ],
         rulesDescription:
@@ -108,8 +108,8 @@ export const eventsData: Event[] = [
         trophiesDescription:
           "Prizes for the top three teams.",
         trophies: [
-          { id: mutualId++, place: "2nd", amount: "10,000 LE" },
           { id: mutualId++, place: "1st", amount: "15,000 LE" },
+          { id: mutualId++, place: "2nd", amount: "10,000 LE" },
           { id: mutualId++, place: "3rd", amount: "5,000 LE" },
         ],
         rulesDescription:
@@ -152,8 +152,8 @@ export const eventsData: Event[] = [
         trophiesDescription:
           "Cash prizes for the top three innovative projects.",
         trophies: [
-          { id: mutualId++, place: "2nd", amount: "9,000 LE" },
           { id: mutualId++, place: "1st", amount: "15,000 LE" },
+          { id: mutualId++, place: "2nd", amount: "9,000 LE" },
           { id: mutualId++, place: "3rd", amount: "6,000 LE" },
         ],
         certificates: [
@@ -217,5 +217,6 @@ export const eventsData: Event[] = [
     // ],
   },
 ];
+
 
 
