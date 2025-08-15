@@ -123,7 +123,7 @@ export const eventsData: Event[] = [
         description:
           "A robotics challenge to design autonomous robots that detect and extinguish fires, testing engineering, innovation, and teamwork in dynamic environments.",
         link: "/events/mutex/fire-fighting",
-        rulebook: "https://bit.ly/FFC_Rulebook_25",
+        rulebook: "https://bit.ly/FFC_RuleBook_25",
         overview:
           "An intense robotics engineering challenge where teams design, build, and program autonomous robots to detect and extinguish simulated fires in a controlled arena. The competition requires participants to integrate hardware design, sensor systems, real-time decision-making algorithms, and mechanical precision into a single, cohesive machine. The arena features varying layouts and obstacles to test adaptability, navigation, and efficiency under realistic conditions. Teams must balance speed and accuracy, as points are awarded not just for putting out fires but for safe and strategic execution. This event is an opportunity for robotics enthusiasts to showcase creativity, engineering excellence, and teamwork.",
         trophiesDescription:
@@ -217,4 +217,5 @@ export const eventsData: Event[] = [
     // ],
   },
 ];
+
 
